@@ -19,12 +19,21 @@ char*copiar(char*a,char*b){
 	}
 	return c;
 }
+char* copiar_p(char*a,char*b){
+    a =new char[tam_c(b)];
+    while(*b!='\0'){
+        char aux=*b;
+        *a=aux;
+        a++;b++;
+    }
+    a-=tam;
+    return a;
+}
 
 int main(){
-	char*a =new char[5];
-	char*b =new char[7];
-	a="perro";
-	b="gatitos";
-	cout<<copiar(a,b)<<endl;
 
+	char*a ="perro";
+	char*b ="gatitos";
+	//cout<<copiar(a,b)<<endl;
+	cout<<copiar_p(a,b)<<endl;
 }
