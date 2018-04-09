@@ -25,18 +25,20 @@ char*concatenar_a(char* a,char* b){
 	return aux;
 }
 char*concatenar_p(char* a,char* b){
-    int ta=tam_c(a);
-	int t=ta+tam_c(b);
-	char*aux= new char[t];
-	for(int i=0;i<t;i++){
-        if(i<ta){
-            *(aux+i)=*(a+i);
-        }
-        else {
-            *(aux+i)=*(b+i-ta);
-        }
-	}
-	return aux;
+    int tam=tam_c(a)+tam_c(b);
+	char*aux= new char[tam];
+    while(*a!='\0'){
+        char tem=*a;
+        *aux=tem;
+        a++;aux++;
+    }
+    while(*b!='\0'){
+        char tem=*b;
+        *aux=tem;
+        b++;aux++;
+    }
+    aux-=tam;
+    return aux;
 }
 
 int main(){
