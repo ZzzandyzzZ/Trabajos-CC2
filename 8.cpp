@@ -10,30 +10,38 @@ int tam_c(char*c){
 	return c-a;
 }
 
-char*invertir(char*a){
+char*inv_a(char*a){
 	int x=tam_c(a);
-	char*aux = new char(x);
-	for (int i = x;i>=0;i--){
-		*(aux+(x-i-1))=*(a+i);
-		
+	char*aux =a;
+
+	a=a+x-1;
+	while(x>=0){
+		x--;
+		*aux=*a;
+		a--;aux++;
 	}
+
 	return aux;
 }
-char*inv(char*a){
+
+char*inv_p(char*a){
 	int tam=tam_c(a);
-	char*aux=a;
-	for(int i=tam;i>=0;i--){
-		aux[tam-i-1]=a[i];
+	char*aux=new char[tam];
+	aux+=tam;
+	while(*a!='\0'){
+        char tem=*a;
+        *aux=tem;
+        //cout<<aux<<endl;
+        //cout<<"--"<<a<<endl;
+        a++;aux--;
 	}
+	aux++;
 	return aux;
 
 }
 
 int main(){
-	char*a =new char[6] ;
-	a="abuelo";
-	cout<<invertir(a)<<endl;
-	a="padre";
-	cout<<invertir(a)<<endl;
 
+	char*a ="abuelo";
+	cout<<inv_p(a)<<endl;
 }
